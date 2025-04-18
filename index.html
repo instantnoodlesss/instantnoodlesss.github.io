@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <title>刘敬崯 - 个人简历</title>
+    <style>
+        /* 自定义样式，模拟苹果风格 */
+        body {
+            font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #f5f5f7, #e5e5e7);
+            color: #1d1d1f;
+        }
+
+        .section-title {
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .section-title:hover {
+            color: #0071e3;
+        }
+
+        .section-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+            background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mx-auto p-8">
+        <div class="bg-white shadow-md rounded-lg p-8">
+            <h1 class="text-4xl font-bold text-center mb-4">刘敬崯</h1>
+            <!-- 添加图片 -->
+            <div class="flex justify-center mb-4">
+                <!-- 请将下面的图片路径替换为你的图片路径 -->
+                <img src="your-image.jpg" alt="刘敬崯" class="w-40 h-40 rounded-full object-cover">
+            </div>
+            <p class="text-center text-gray-600 mb-8">中共党员 | 出生年月：2002 - 12 | 求职意向：AI产品</p>
+
+            <div class="flex justify-center mb-8 space-x-4">
+                <p><i class="fas fa-phone mr-2"></i>13599036383</p>
+                <p><i class="fas fa-envelope mr-2"></i>liujingyin02@163.com</p>
+                <p><i class="fas fa-map-marker-alt mr-2"></i>北京市</p>
+            </div>
+
+            <h2 class="section-title text-2xl font-bold mb-2 border-b pb-2" onclick="toggleSection('education')">教育背景 <i class="fas fa-chevron-down ml-2"></i></h2>
+            <div id="education" class="section-content mb-8">
+                <p class="text-lg font-semibold">北京化工大学 - 自动化 - 2021.09 - 2025.06</p>
+                <ul class="list-disc pl-6">
+                    <li>主修课程：自动控制原理 97，C语言 96，Python 95，嵌入式系统 95，人工智能 93，数字电子技术 97，控制系统仿真 96，微机原理 93，信号与系统 90</li>
+                    <li>排名 5/160  GPA 3.88</li>
+                    <li>获一等人民奖学金，校友奖学金，浙江佑谦企业奖学金</li>
+                </ul>
+            </div>
+
+            <h2 class="section-title text-2xl font-bold mb-2 border-b pb-2" onclick="toggleSection('internship')">实习经历 <i class="fas fa-chevron-down ml-2"></i></h2>
+            <div id="internship" class="section-content mb-8">
+                <p class="text-lg font-semibold">优稳自动化 - 技术实习生 - 2024.07 - 2024.09</p>
+                <ul class="list-disc pl-6">
+                    <li>自主完成车辆主动振动控制系统模型及控制，包括解析法做整车悬挂建模、数学推导整车模型、创新性完成神经网络主动控制算法。
+                        <div class="mt-2">
+                            <img src="internship-image1.jpg" alt="实习经历1" class="w-48 h-auto rounded-md">
+                        </div>
+                    </li>
+                    <li>自主学习多领域统一建模仿真语言（modelica），使用modelica完成复杂系统建模，封装可复用模块库用于公司生产。
+                        <div class="mt-2">
+                            <img src="internship-image2.jpg" alt="实习经历2" class="w-48 h-auto rounded-md">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <h2 class="section-title text-2xl font-bold mb-2 border-b pb-2" onclick="toggleSection('project')">项目经历 <i class="fas fa-chevron-down ml-2"></i></h2>
+            <div id="project" class="section-content mb-8">
+                <p class="text-lg font-semibold">清华大学质量与可靠性实验室 - 科研助理 - 2024.09 - 2025.01</p>
+                <ul class="list-disc pl-6">
+                    <li>参与清华大学与中国船舶集团合作的舰队系统可靠性研究项目，负责需求分析及流程模型搭建。基于企业提供的设备参数与任务场景数据，设计动态可靠性模型框架。
+                        <div class="mt-2">
+                            <img src="project-image1.jpg" alt="项目经历1" class="w-48 h-auto rounded-md">
+                        </div>
+                    </li>
+                    <li>负责与甲方（中国船舶）技术对接，优化舰队可靠性模型，完成3轮迭代升级，获甲方认可。
+                        <div class="mt-2">
+                            <img src="project-image2.jpg" alt="项目经历2" class="w-48 h-auto rounded-md">
+                        </div>
+                    </li>
+                </ul>
+                <p class="text-lg font-semibold">北京化工大学自动化研究所 - 项目负责人 - 2023.07 - 2025.02</p>
+                <ul class="list-disc pl-6">
+                    <li>研发基于深度学习的无人机射频信号分类系统，构建无人机集群协同控制算法leader - follower，实现无人机分布式动态编队响应。
+                        <div class="mt-2">
+                            <img src="project-image3.jpg" alt="项目经历3" class="w-48 h-auto rounded-md">
+                        </div>
+                    </li>
+                    <li>发表论文《UAV Signal Classification Methods Design Based on Neural Networks Encoder》
+                        <div class="mt-2">
+                            <img src="project-image4.jpg" alt="项目经历4" class="w-48 h-auto rounded-md">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <h2 class="section-title text-2xl font-bold mb-2 border-b pb-2" onclick="toggleSection('activity')">活动组织经历 <i class="fas fa-chevron-down ml-2"></i></h2>
+            <div id="activity" class="section-content mb-8">
+                <p class="text-lg font-semibold">团中央青马工程 - 大学生骨干 - 2022.09 - 2023.09</p>
+                <ul class="list-disc pl-6">
+                    <li>组织“青心践史，笃志前行”暑期社会实践活动，带队赴上海、嘉兴、南京三地开展研学活动，获北京实践活动金奖，获人民日报点名表扬。
+                        <div class="mt-2">
+                            <img src="activity-image1.jpg" alt="活动组织经历1" class="w-48 h-auto rounded-md">
+                        </div>
+                    </li>
+                    <li>与嘉兴南湖政府共建“北京化工大学 - 嘉兴实践创业基地”，就乡村振兴、红色路线与大学生研学方面达成协议。
+                        <div class="mt-2">
+                            <img src="activity-image2.jpg" alt="活动组织经历2" class="w-48 h-auto rounded-md">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <h2 class="section-title text-2xl font-bold mb-2 border-b pb-2" onclick="toggleSection('awards')">获奖及证书 <i class="fas fa-chevron-down ml-2"></i></h2>
+            <div id="awards" class="section-content">
+                <ul class="list-disc pl-6">
+                    <li>全国大学生奥林匹克数学竞赛 - 国家级金奖 - 2024.06</li>
+                    <li>北京市嵌入式编程竞赛 - 二等奖 - 2023.09</li>
+                    <li>语言能力：通过大学英语四六级、能熟练查阅英文文献</li>
+                    <li>计算机能力：通过全国计算机二级考试</li>
+                    <li>编程能力：熟练使用c、python、MATLAB、modelica，熟悉pytorch等框架</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleSection(id) {
+            const section = document.getElementById(id);
+            const title = document.querySelector(`[onclick="toggleSection('${id}')"]`);
+            const icon = title.querySelector('i');
+
+            if (section.style.display === 'none') {
+                section.style.display = 'block';
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                section.style.display = 'none';
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        }
+    </script>
+</body>
+
+</html>
