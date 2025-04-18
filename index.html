@@ -8,7 +8,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <title>刘敬崯 - 个人简历</title>
     <style>
-        
         body {
             font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
             background: linear-gradient(to bottom, #f5f5f7, #e5e5e7);
@@ -53,6 +52,7 @@
 
         img {
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
 
         img:hover {
@@ -78,7 +78,6 @@
             transform: scale(1.1);
         }
 
-        /* 新增样式：展开图标 */
         #menu-icon {
             position: fixed;
             top: 20px;
@@ -88,7 +87,6 @@
             z-index: 1000;
         }
 
-        /* 新增样式：模态框背景 */
         #modal-bg {
             display: none;
             position: fixed;
@@ -100,7 +98,6 @@
             z-index: 1001;
         }
 
-        /* 新增样式：模态框内容 */
         #modal-content {
             display: none;
             position: fixed;
@@ -139,33 +136,54 @@
         #modal-content a:hover {
             text-decoration: underline;
         }
+
+        /* 新增：图片查看模态框样式 */
+        #image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1003;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #image-modal img {
+            max-width: 90%;
+            max-height: 90%;
+        }
     </style>
 </head>
 
 <body>
-    <!-- 新增：展开图标 -->
     <i id="menu-icon" class="fas fa-bars"></i>
-    <!-- 新增：模态框背景 -->
     <div id="modal-bg"></div>
-    <!-- 新增：模态框内容 -->
     <div id="modal-content">
         <h2>开源资料</h2>
         <a href="./Ubuntu.pdf" download>Ubuntu安装与环境配置</a>
     </div>
 
+    <!-- 新增：图片查看模态框 -->
+    <div id="image-modal">
+        <img id="modal-image" src="" alt="放大图片">
+    </div>
+
     <div class="container mx-auto p-8">
         <div class="bg-white shadow-md rounded-lg p-8">
             <h1 class="text-4xl font-bold text-center mb-4">刘敬崯</h1>
-            <!-- 添加图片 -->
             <div class="flex justify-center mb-4">
-                
-                <img src="./muphoto.jpg" alt="刘敬崯" class="w-40 h-40 rounded-full object-cover">
+                <img src="./myphoto.jpg" alt="刘敬崯" class="w-40 h-40 rounded-full object-cover" onclick="openImageModal(this.src)">
             </div>
             <p class="text-center text-gray-600 mb-8">中共党员 | 出生年月：2002 - 12 | 求职意向：AI产品</p>
 
             <div class="flex justify-center mb-8 space-x-4">
                 <p><i class="fas fa-phone mr-2"></i>13599036383</p>
                 <p><i class="fas fa-envelope mr-2"></i>liujingyin02@163.com</p>
+            </div>
+            <div class="flex justify-center mb-8">
                 <p><i class="fas fa-map-marker-alt mr-2"></i>北京市</p>
             </div>
 
@@ -185,12 +203,12 @@
                 <ul class="list-disc pl-6">
                     <li>自主完成车辆主动振动控制系统模型及控制，包括解析法做整车悬挂建模、数学推导整车模型、创新性完成神经网络主动控制算法。
                         <div class="mt-2">
-                            <img src="./car.png" alt="实习经历1" class="w-48 h-auto rounded-md">
+                            <img src="./car.png" alt="实习经历1" class="w-48 h-auto rounded-md" onclick="openImageModal(this.src)">
                         </div>
                     </li>
                     <li>自主学习多领域统一建模仿真语言（modelica），使用modelica完成复杂系统建模，封装可复用模块库用于公司生产。
                         <div class="mt-2">
-                            <img src="./car2.png" alt="实习经历2" class="w-48 h-auto rounded-md">
+                            <img src="./car2.png" alt="实习经历2" class="w-48 h-auto rounded-md" onclick="openImageModal(this.src)">
                         </div>
                     </li>
                 </ul>
@@ -202,12 +220,12 @@
                 <ul class="list-disc pl-6">
                     <li>参与清华大学与中国船舶集团合作的舰队系统可靠性研究项目，负责需求分析及流程模型搭建。基于企业提供的设备参数与任务场景数据，设计动态可靠性模型框架。
                         <div class="mt-2">
-                            <img src="./boat.png" alt="项目经历1" class="w-48 h-auto rounded-md">
+                            <img src="./boat.png" alt="项目经历1" class="w-48 h-auto rounded-md" onclick="openImageModal(this.src)">
                         </div>
                     </li>
                     <li>负责与甲方（中国船舶）技术对接，优化舰队可靠性模型，完成3轮迭代升级，获甲方认可。
                         <div class="mt-2">
-                            <img src="./boat2.png" alt="项目经历2" class="w-48 h-auto rounded-md">
+                            <img src="./boat2.png" alt="项目经历2" class="w-48 h-auto rounded-md" onclick="openImageModal(this.src)">
                         </div>
                     </li>
                 </ul>
@@ -215,12 +233,12 @@
                 <ul class="list-disc pl-6">
                     <li>研发基于深度学习的无人机射频信号分类系统，构建无人机集群协同控制算法leader - follower，实现无人机分布式动态编队响应。
                         <div class="mt-2">
-                            <img src="./uav.png" alt="项目经历3" class="w-48 h-auto rounded-md">
+                            <img src="./uav.png" alt="项目经历3" class="w-48 h-auto rounded-md" onclick="openImageModal(this.src)">
                         </div>
                     </li>
                     <li>发表论文《UAV Signal Classification Methods Design Based on Neural Networks Encoder》
                         <div class="mt-2">
-                            <img src="./uav2.png" alt="项目经历4" class="w-48 h-auto rounded-md">
+                            <img src="./uav2.png" alt="项目经历4" class="w-48 h-auto rounded-md" onclick="openImageModal(this.src)">
                         </div>
                     </li>
                 </ul>
@@ -232,12 +250,12 @@
                 <ul class="list-disc pl-6">
                     <li>组织“青心践史，笃志前行”暑期社会实践活动，带队赴上海、嘉兴、南京三地开展研学活动，获北京实践活动金奖，获人民日报点名表扬。
                         <div class="mt-2">
-                            <img src="./qinma.png" alt="活动组织经历1" class="w-48 h-auto rounded-md">
+                            <img src="./qinma.png" alt="活动组织经历1" class="w-48 h-auto rounded-md" onclick="openImageModal(this.src)">
                         </div>
                     </li>
                     <li>与嘉兴南湖政府共建“北京化工大学 - 嘉兴实践创业基地”，就乡村振兴、红色路线与大学生研学方面达成协议。
                         <div class="mt-2">
-                            <img src="./qinma2.png" alt="活动组织经历2" class="w-48 h-auto rounded-md">
+                            <img src="./qinma2.png" alt="活动组织经历2" class="w-48 h-auto rounded-md" onclick="openImageModal(this.src)">
                         </div>
                     </li>
                 </ul>
@@ -274,6 +292,8 @@
             const menuIcon = document.getElementById('menu-icon');
             const modalBg = document.getElementById('modal-bg');
             const modalContent = document.getElementById('modal-content');
+            const imageModal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
 
             menuIcon.addEventListener('click', function () {
                 modalBg.style.display = 'block';
@@ -283,6 +303,11 @@
             modalBg.addEventListener('click', function () {
                 modalBg.style.display = 'none';
                 modalContent.style.display = 'none';
+            });
+
+            // 新增：关闭图片查看模态框
+            imageModal.addEventListener('click', function () {
+                imageModal.style.display = 'none';
             });
         });
 
@@ -300,6 +325,14 @@
                 icon.classList.remove('fa-chevron-up');
                 icon.classList.add('fa-chevron-down');
             }
+        }
+
+        // 新增：打开图片查看模态框
+        function openImageModal(src) {
+            const imageModal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+            modalImage.src = src;
+            imageModal.style.display = 'flex';
         }
     </script>
 </body>
