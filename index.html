@@ -8,7 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <title>刘敬崯 - 个人简历</title>
     <style>
-        /* 自定义样式，模拟苹果风格 */
+        
         body {
             font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
             background: linear-gradient(to bottom, #f5f5f7, #e5e5e7);
@@ -58,17 +58,108 @@
         img:hover {
             transform: scale(1.05);
         }
+
+        footer {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        footer a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #0071e3;
+            transform: scale(1.1);
+        }
+
+        /* 新增样式：展开图标 */
+        #menu-icon {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        /* 新增样式：模态框背景 */
+        #modal-bg {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+        }
+
+        /* 新增样式：模态框内容 */
+        #modal-content {
+            display: none;
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            z-index: 1002;
+            transform-origin: top right;
+            animation: expand 0.3s ease;
+        }
+
+        @keyframes expand {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        #modal-content h2 {
+            margin-bottom: 10px;
+        }
+
+        #modal-content a {
+            display: block;
+            margin-top: 10px;
+            color: #0071e3;
+            text-decoration: none;
+        }
+
+        #modal-content a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
 <body>
+    <!-- 新增：展开图标 -->
+    <i id="menu-icon" class="fas fa-bars"></i>
+    <!-- 新增：模态框背景 -->
+    <div id="modal-bg"></div>
+    <!-- 新增：模态框内容 -->
+    <div id="modal-content">
+        <h2>开源资料</h2>
+        <a href="./Ubuntu.pdf" download>Ubuntu安装与环境配置</a>
+    </div>
+
     <div class="container mx-auto p-8">
         <div class="bg-white shadow-md rounded-lg p-8">
             <h1 class="text-4xl font-bold text-center mb-4">刘敬崯</h1>
             <!-- 添加图片 -->
             <div class="flex justify-center mb-4">
-                <!-- 请将下面的图片路径替换为你的图片路径 -->
-                <img src="./myphoto.jpg" alt="刘敬崯" class="w-40 h-40 rounded-full object-cover">
+                
+                <img src="./muphoto.jpg" alt="刘敬崯" class="w-40 h-40 rounded-full object-cover">
             </div>
             <p class="text-center text-gray-600 mb-8">中共党员 | 出生年月：2002 - 12 | 求职意向：AI产品</p>
 
@@ -94,12 +185,12 @@
                 <ul class="list-disc pl-6">
                     <li>自主完成车辆主动振动控制系统模型及控制，包括解析法做整车悬挂建模、数学推导整车模型、创新性完成神经网络主动控制算法。
                         <div class="mt-2">
-                            <img src="internship-image1.jpg" alt="实习经历1" class="w-48 h-auto rounded-md">
+                            <img src="./car.png" alt="实习经历1" class="w-48 h-auto rounded-md">
                         </div>
                     </li>
                     <li>自主学习多领域统一建模仿真语言（modelica），使用modelica完成复杂系统建模，封装可复用模块库用于公司生产。
                         <div class="mt-2">
-                            <img src="internship-image2.jpg" alt="实习经历2" class="w-48 h-auto rounded-md">
+                            <img src="./car2.png" alt="实习经历2" class="w-48 h-auto rounded-md">
                         </div>
                     </li>
                 </ul>
@@ -111,12 +202,12 @@
                 <ul class="list-disc pl-6">
                     <li>参与清华大学与中国船舶集团合作的舰队系统可靠性研究项目，负责需求分析及流程模型搭建。基于企业提供的设备参数与任务场景数据，设计动态可靠性模型框架。
                         <div class="mt-2">
-                            <img src="project-image1.jpg" alt="项目经历1" class="w-48 h-auto rounded-md">
+                            <img src="./boat.png" alt="项目经历1" class="w-48 h-auto rounded-md">
                         </div>
                     </li>
                     <li>负责与甲方（中国船舶）技术对接，优化舰队可靠性模型，完成3轮迭代升级，获甲方认可。
                         <div class="mt-2">
-                            <img src="project-image2.jpg" alt="项目经历2" class="w-48 h-auto rounded-md">
+                            <img src="./boat2.png" alt="项目经历2" class="w-48 h-auto rounded-md">
                         </div>
                     </li>
                 </ul>
@@ -124,12 +215,12 @@
                 <ul class="list-disc pl-6">
                     <li>研发基于深度学习的无人机射频信号分类系统，构建无人机集群协同控制算法leader - follower，实现无人机分布式动态编队响应。
                         <div class="mt-2">
-                            <img src="project-image3.jpg" alt="项目经历3" class="w-48 h-auto rounded-md">
+                            <img src="./uav.png" alt="项目经历3" class="w-48 h-auto rounded-md">
                         </div>
                     </li>
                     <li>发表论文《UAV Signal Classification Methods Design Based on Neural Networks Encoder》
                         <div class="mt-2">
-                            <img src="project-image4.jpg" alt="项目经历4" class="w-48 h-auto rounded-md">
+                            <img src="./uav2.png" alt="项目经历4" class="w-48 h-auto rounded-md">
                         </div>
                     </li>
                 </ul>
@@ -141,12 +232,12 @@
                 <ul class="list-disc pl-6">
                     <li>组织“青心践史，笃志前行”暑期社会实践活动，带队赴上海、嘉兴、南京三地开展研学活动，获北京实践活动金奖，获人民日报点名表扬。
                         <div class="mt-2">
-                            <img src="activity-image1.jpg" alt="活动组织经历1" class="w-48 h-auto rounded-md">
+                            <img src="./qinma.png" alt="活动组织经历1" class="w-48 h-auto rounded-md">
                         </div>
                     </li>
                     <li>与嘉兴南湖政府共建“北京化工大学 - 嘉兴实践创业基地”，就乡村振兴、红色路线与大学生研学方面达成协议。
                         <div class="mt-2">
-                            <img src="activity-image2.jpg" alt="活动组织经历2" class="w-48 h-auto rounded-md">
+                            <img src="./qinma2.png" alt="活动组织经历2" class="w-48 h-auto rounded-md">
                         </div>
                     </li>
                 </ul>
@@ -164,7 +255,37 @@
             </div>
         </div>
     </div>
+    <footer>
+        <a href="https://space.bilibili.com/648347822?spm_id_from=333.1007.0.0" target="_blank"><i class="fab fa-bilibili"></i></a>
+        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.csdn.net" target="_blank"><i class="fa-brands fa-csdn"></i></a>
+    </footer>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = ['education', 'internship', 'project', 'activity', 'awards'];
+            sections.forEach(function (id) {
+                const section = document.getElementById(id);
+                const title = document.querySelector(`[onclick="toggleSection('${id}')"]`);
+                const icon = title.querySelector('i');
+                section.style.display = 'none';
+                icon.classList.add('fa-chevron-down');
+            });
+
+            const menuIcon = document.getElementById('menu-icon');
+            const modalBg = document.getElementById('modal-bg');
+            const modalContent = document.getElementById('modal-content');
+
+            menuIcon.addEventListener('click', function () {
+                modalBg.style.display = 'block';
+                modalContent.style.display = 'block';
+            });
+
+            modalBg.addEventListener('click', function () {
+                modalBg.style.display = 'none';
+                modalContent.style.display = 'none';
+            });
+        });
+
         function toggleSection(id) {
             const section = document.getElementById(id);
             const title = document.querySelector(`[onclick="toggleSection('${id}')"]`);
@@ -184,3 +305,4 @@
 </body>
 
 </html>
+    
